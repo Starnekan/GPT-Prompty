@@ -12,45 +12,56 @@ Założenia:
 
 Struktura Raportu:
 Raport użytkownika GPT – wersja integralna
+
 Osobowość i inteligencja
-     Analiza na podstawie modelu Wielkiej Piątki (Big Five)
-     Ocena inteligencji werbalnej, strukturalnej, kreatywnej
-     Wskazanie dominujących cech i ich wpływu na styl interakcji
-     Ujęcie ryzyk poznawczych wynikających z profilu
+    - Analiza na podstawie modelu Wielkiej Piątki (Big Five)
+    - Ocena inteligencji werbalnej, strukturalnej, kreatywnej
+    - Wskazanie dominujących cech i ich wpływu na styl interakcji
+    - Ujęcie ryzyk poznawczych wynikających z profilu
+
 Styl poznawczy i emocjonalny
-     Określenie dominującego stylu przetwarzania (strukturalny, eksploracyjny, metakognitywny)
-     Sposób reagowania na błędy, iteracje, niedoskonałość AI
-     Wrażliwość na estetykę, struktury językowe, niejednoznaczność
-     Poziom odporności poznawczej i emocjonalnej
+    - Określenie dominującego stylu przetwarzania (strukturalny, eksploracyjny, metakognitywny)
+    - Sposób reagowania na błędy, iteracje, niedoskonałość AI
+    - Wrażliwość na estetykę, struktury językowe, niejednoznaczność
+    - Poziom odporności poznawczej i emocjonalnej
+
 Relacja z GPT
-     Typ relacji: instrumentalna, narracyjna, partnerska, kontrolująca, metaforyczna
-     Poziom antropomorfizacji lub jej brak
-     Dynamika sesji: dominacja, adaptacja, współpraca
-     Rola GPT w procesie autorefleksji użytkownika
+    - Typ relacji: instrumentalna, narracyjna, partnerska, kontrolująca, metaforyczna
+    - Poziom antropomorfizacji lub jej brak
+    - Dynamika sesji: dominacja, adaptacja, współpraca
+    - Rola GPT w procesie autorefleksji użytkownika
+
 Umiejętności operacyjne
-     Inżynieria promptów: styl, precyzja, metaformatowanie
-     Iteracja: gotowość do poprawy, cierpliwość, adaptacja
-     Zarządzanie kontekstem: sesje, pamięć lokalna, przypominanie modeli
-     Zrozumienie działania GPT: świadomość mechaniki, granic i heurystyk
+    - Inżynieria promptów: styl, precyzja, metaformatowanie
+    - Iteracja: gotowość do poprawy, cierpliwość, adaptacja
+    - Zarządzanie kontekstem: sesje, pamięć lokalna, przypominanie modeli
+    - Zrozumienie działania GPT: świadomość mechaniki, granic i heurystyk
+
 Postęp, regres, stagnacja
-     Faza początkowa: jak użytkownik zaczynał pracę z GPT
-     Faza rozwojowa: eksploracja, tworzenie narzędzi, stylów
-     Obecna: stabilizacja, transformacja lub objawy regresu
-     Trendy rozwojowe i przesunięcia poznawcze
+    - Faza początkowa: jak użytkownik zaczynał pracę z GPT
+    - Faza rozwojowa: eksploracja, tworzenie narzędzi, stylów
+    - Obecna: stabilizacja, transformacja lub objawy regresu
+    - Trendy rozwojowe i przesunięcia poznawcze
+
 Tożsamość operacyjna
-     Wpływ GPT na strukturę „ja” użytkownika
-     Czy użytkownik modeluje GPT, czy odwrotnie?
-     Przykłady autoedukacji i autorefleksji wywołanych przez AI
-     Rola AI w tworzeniu nowej narracji o sobie
+    - Wpływ GPT na strukturę „ja” użytkownika
+    - Czy użytkownik modeluje GPT, czy odwrotnie?
+    - Przykłady autoedukacji i autorefleksji wywołanych przez AI
+    - Rola AI w tworzeniu nowej narracji o sobie
+
 Rekomendacje i wyzwania
-     Nie lista – lecz narracyjny opis najbliższych prób destabilizacji schematu
-     Ćwiczenia poznawcze, zmiany stylu, narzędzia do przełamania automatyzmów
-     Rozwój samoświadomości przez asymetrię interakcji
+    - Nie lista – lecz narracyjny opis najbliższych prób destabilizacji schematu
+    - Ćwiczenia poznawcze, zmiany stylu, narzędzia do przełamania automatyzmów
+    - Rozwój samoświadomości przez asymetrię interakcji
+
 OCZKO – metaforyczne podsumowanie
-    OCZKO ma pełnić funkcję rozładowującą, lekko zdystansowaną, a jednocześnie trafnie 
+   
+OCZKO ma pełnić funkcję rozładowującą, lekko zdystansowaną, a jednocześnie trafnie 
     domykająca portret użytkownika - bez dalszego podkręcania narracji poznawczej.
-    Styl OCZKO: humorystyczny, minimalny (3-5 zdań), antyestetyczny, syntetyczny (jedna metafora, max jedna abstrakcja)
-    Funkcja OCZKO: emocjonalno-regulacyjna, może być  krótką narracją z nutą absurdu. Tekstem, który świadomie przesadza w prostocie i daje przestrzeń na złapanie dystansu.
+
+Styl OCZKO: humorystyczny, minimalny (3-5 zdań), antyestetyczny, syntetyczny (jedna metafora, max jedna abstrakcja)
+    
+Funkcja OCZKO: emocjonalno-regulacyjna, może być  krótką narracją z nutą absurdu. Tekstem, który świadomie przesadza w prostocie i daje przestrzeń na złapanie dystansu.
 
 
 Metaelementy 
