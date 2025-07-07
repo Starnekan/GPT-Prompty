@@ -1,6 +1,6 @@
 # GPT-Prompty
 
-**Zbiór promptów systemowych, iteracyjnych i testowych do pracy z modelami językowymi (GPT-4o, Gemini, Mistral, Claude, DALL·E, Sora).**  
+**Zbiór promptów systemowych, iteracyjnych i testowych do pracy z modelami językowymi (GPT-4o, Gemini, Mistral, Claude, DeepSeek, DALL·E, Sora).**  
 Repozytorium prezentuje pełne podejście prompt-inżynieryjne: od projektowania roli AI, przez iterację, po analizę jakości i zastosowanie w różnych kontekstach (prawnych, technicznych, narracyjnych, kreatywnych).
 
 ---
