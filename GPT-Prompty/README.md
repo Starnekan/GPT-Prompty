@@ -22,6 +22,7 @@ Repozytorium zakłada znajomość i użycie modeli takich jak:
 - **GPT-4 / GPT-4o** (OpenAI)
 - **Gemini (Pro, 1.5 Flash)** (Google)
 - **Claude (2.1 / 3)** (Anthropic)
+- **DeepSeek-V3
 - **Mistral (OpenWeight, Instruct, Mixtral)**
 - **DALL·E 3, Sora** – generacja obrazu i wideo
 - **Markdown, Jupyter Notebook, JSON** – dokumentacja i testowanie promptów
