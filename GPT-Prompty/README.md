@@ -20,10 +20,10 @@ Repozytorium prezentuje pełne podejście prompt-inżynieryjne: od projektowania
 
 Repozytorium zakłada znajomość i użycie modeli takich jak:
 - **GPT-4 / GPT-4o** (OpenAI)
-- **Gemini (Pro, 1.5 Flash)** (Google)
-- **Claude (2.1 / 3)** (Anthropic)
+- **Gemini (2.5 Flash)** (Google)
+- **Claude Sonet (4)** (Anthropic)
 - **DeepSeek-V3**
-- **Mistral (OpenWeight, Instruct, Mixtral)**
+- **Mistral**
 - **DALL·E 3, Sora** – generacja obrazu i wideo
 - **Markdown, Jupyter Notebook, JSON** – dokumentacja i testowanie promptów
 
