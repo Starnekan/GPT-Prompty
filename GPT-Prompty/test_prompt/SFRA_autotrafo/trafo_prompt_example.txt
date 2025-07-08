@@ -1,0 +1,8 @@
+Dane z pomiaru SFRA autotransformatora AT-2 (Żukowice, 220/110kV):
+- øA RATIO: 0.85
+- øA RATIO ERROR: 3.2%
+- øA PHASE DEV: 2.1°
+- øA RMS CURRENT: 0.25 A
+
+Pomiar inspekcyjny. Oceń poprawność i zaproponuj działania serwisowe.
+
