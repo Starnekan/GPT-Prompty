@@ -153,8 +153,12 @@ class SFRAAnalyzer:
     def analyze(self) -> None:
         df = self.load_data()
         self.validate_columns(df)
+    if self.file_path.suffix in ['.xlsx','.xls']:
+    df = pd.read_excel(self.file_path, engine='openpyxl')
+    else:
+    df = pd.read_csv(...)
 
-        # 1) kalibracja progów
+         # 1) kalibracja progów
         thresholds, anomalies = self.calibrate_thresholds(df)
 
         # 2) podsumowanie
