@@ -38,24 +38,31 @@ class SFRAAnalyzer:
             "øB RATIO", "øB RATIO ERROR", "øB PHASE DEV", "øB RMS CURRENT",
             "øC RATIO", "øC RATIO ERROR", "øC PHASE DEV", "øC RMS CURRENT",
         ]
-        # parametry pętli korekcyjnej
         self.target_anomaly_rate = target_anomaly_rate
         self.sigma_step = sigma_step
         self.tol = tol
         self.max_iter = max_iter
-        # do przechowywania wyników kalibracji
         self.sigma_multiplier = 2.0
         self.thresholds: Dict[str, float] = {}
 
     def load_data(self) -> pd.DataFrame:
+        """
+        Wczytuje dane z pliku CSV lub Excel i zwraca DataFrame.
+        Rzuca FileNotFoundError lub ValueError.
+        """
         if not self.file_path.exists():
             raise FileNotFoundError(f"Plik nie istnieje: {self.file_path}")
+
+        suffix = self.file_path.suffix.lower()
         try:
-            df = pd.read_csv(self.file_path, sep=self.sep, encoding=self.encoding)
+            if suffix in (".xlsx", ".xls"):
+                df = pd.read_excel(self.file_path, engine="openpyxl")
+            else:
+                df = pd.read_csv(self.file_path, sep=self.sep, encoding=self.encoding)
         except pd.errors.EmptyDataError:
-            raise ValueError("Plik CSV jest pusty lub ma nieprawidłowy format")
+            raise ValueError("Plik jest pusty lub ma nieprawidłowy format")
         except pd.errors.ParserError as e:
-            raise ValueError(f"Błąd parsowania CSV: {e}")
+            raise ValueError(f"Błąd parsowania: {e}")
 
         if df.empty:
             raise ValueError("Wczytany DataFrame jest pusty")
@@ -74,9 +81,6 @@ class SFRAAnalyzer:
             )
 
     def _compute_thresholds(self, df: pd.DataFrame) -> None:
-        """
-        Na podstawie aktualnego sigma_multiplier liczy progi dla kolumn ERROR.
-        """
         error_cols = [c for c in self.required_columns if c.endswith("ERROR")]
         stats = df[error_cols].agg(["mean", "std"])
         self.thresholds = {
@@ -86,22 +90,12 @@ class SFRAAnalyzer:
         logger.debug(f"Progi (σ={self.sigma_multiplier}): {self.thresholds}")
 
     def detect_anomalies(self, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Zwraca podzbiór wierszy, w których któraś kolumna ERROR przekracza próg.
-        """
-        masks = []
-        for col, thr in self.thresholds.items():
-            masks.append(df[col] > thr)
-        any_anomaly = pd.concat(masks, axis=1).any(axis=1)
-        return df[any_anomaly]
+        # Wektoryzowana detekcja anomalii
+        error_cols = list(self.thresholds.keys())
+        mask = (df[error_cols] > pd.Series(self.thresholds)).any(axis=1)
+        return df.loc[mask]
 
     def calibrate_thresholds(self, df: pd.DataFrame) -> Tuple[Dict[str, float], pd.DataFrame]:
-        """
-        Pętla korekcyjna:
-        - liczy progi na podstawie średniej + sigma_multiplier*std
-        - sprawdza odsetek anomalii
-        - dostosowuje sigma_multiplier aż odsetek anomalii ~ target_anomaly_rate
-        """
         for i in range(self.max_iter):
             self._compute_thresholds(df)
             anomalies = self.detect_anomalies(df)
@@ -112,11 +106,9 @@ class SFRAAnalyzer:
             )
             if abs(rate - self.target_anomaly_rate) <= self.tol:
                 break
-            # jeśli jest za dużo anomalii → bardziej liberalny próg (większe sigma)
             if rate > self.target_anomaly_rate:
                 self.sigma_multiplier += self.sigma_step
             else:
-                # zbyt mało → zaostrzamy detekcję
                 self.sigma_multiplier = max(self.sigma_step, self.sigma_multiplier - self.sigma_step)
         else:
             logger.warning("Osiągnięto maksymalną liczbę iteracji kalibracji")
@@ -153,12 +145,8 @@ class SFRAAnalyzer:
     def analyze(self) -> None:
         df = self.load_data()
         self.validate_columns(df)
-    if self.file_path.suffix in ['.xlsx','.xls']:
-    df = pd.read_excel(self.file_path, engine='openpyxl')
-    else:
-    df = pd.read_csv(...)
 
-         # 1) kalibracja progów
+        # 1) kalibracja progów
         thresholds, anomalies = self.calibrate_thresholds(df)
 
         # 2) podsumowanie
@@ -168,7 +156,6 @@ class SFRAAnalyzer:
 
         logger.info(f"Znaleziono {len(anomalies)} wierszy-anomalii.")
         if not anomalies.empty:
-            # wypisz kilka pierwszych przykładów
             logger.info("Przykłady anomalii (pierwsze 5 wierszy):")
             logger.info(anomalies[self.required_columns].head().to_string())
 
