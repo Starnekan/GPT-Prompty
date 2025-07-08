@@ -1,6 +1,6 @@
 # 🧪 Test Prompt: SFRA Analysis – Autotransformator AT-2
 
-Ten notebook demonstruje użycie promptu **„Asystent Diagnostyki i Analizy Transformatorów Energetycznych”** na przykładzie pomiaru SFRA autotransformatora 220/110kV.
+Ten notebook demonstruje użycie promptu **„Asystent Diagnostyki i Analizy Transformatorów Energetycznych”** na przykładzie pomiaru SFRA autotransformatora 220/110kV, Żukowice.
 
 ## 📄 Dane wejściowe
 
