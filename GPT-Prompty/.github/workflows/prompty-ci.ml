@@ -1,0 +1,57 @@
+
+name: 📄 Prompty – pełna walidacja i styl
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-prompts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout repo
+      uses: actions/checkout@v3
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 📦 Install dependencies
+      run: |
+        pip install markdown openai
+
+    - name: ✅ Walidacja składni Markdown
+      run: |
+        find ./GPT-Prompty/prompt_templates -name "*.md" -exec python -m markdown {} \;
+
+    - name: 🔍 Sprawdzenie nagłówków w plikach
+      run: |
+        for f in GPT-Prompty/prompt_templates/*.md; do
+          grep -q "^# " "$f" || (echo "$f: brak nagłówka '#'" && exit 1)
+          grep -qi "prompt" "$f" || (echo "$f: brak słowa 'prompt'" && exit 1)
+        done
+
+    - name: 📋 Sprawdzenie struktury promptu
+      run: |
+        for f in GPT-Prompty/prompt_templates/*.md; do
+          grep -qi "opis" "$f" || echo "::warning file=$f::brak sekcji 'opis'"
+          grep -qi "tagi" "$f" || echo "::warning file=$f::brak sekcji 'tagi'"
+          grep -qi "użytkowanie" "$f" || echo "::warning file=$f::brak sekcji 'użytkowanie'"
+        done
+
+    - name: 🧾 Generowanie katalogu promptów
+      run: |
+        echo "# 📚 Lista promptów" > GPT-Prompty/LISTA_PROMPTOW.md
+        for f in GPT-Prompty/prompt_templates/*.md; do
+          echo "- [$(basename "$f")]($f)" >> GPT-Prompty/LISTA_PROMPTOW.md
+        done
+
+    - name: 📤 Upload wygenerowanego katalogu jako artefakt
+      uses: actions/upload-artifact@v3
+      with:
+        name: prompt-listing
+        path: GPT-Prompty/LISTA_PROMPTOW.md
