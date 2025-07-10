@@ -1,1 +1,6 @@
+openai
+langchain
+pandas
+tiktoken
+python-dotenv
 
