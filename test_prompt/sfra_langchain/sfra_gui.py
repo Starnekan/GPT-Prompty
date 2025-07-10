@@ -1,8 +1,18 @@
-import streamlit as st
+import sys, os
+
+# 1. Dodaj ten katalog do sys.path
+sys.path.insert(0, os.path.dirname(__file__))
+
+# 2. Teraz prosty, lokalny import
 from sfra_analyzer import SFRAAnalyzer
+
+
+
 from langchain_agent import build_agent_chain
-import tempfile
 from dotenv import load_dotenv
+import streamlit as st
+import tempfile
+
 
 load_dotenv()
 
