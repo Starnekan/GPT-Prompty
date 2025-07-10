@@ -1,0 +1,18 @@
+name: Run BAT script on Windows
+
+# pozwala uruchomić ręcznie z zakładki Actions → Run workflow
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bat:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Uruchom skrypt BAT
+        run: |
+          # jeżeli plik jest w katalogu głównym repo:
+          .\run_sfra.bat
