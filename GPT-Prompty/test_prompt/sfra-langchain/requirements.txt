@@ -1,6 +1,6 @@
 openai
 langchain
 pandas
+streamlit
 tiktoken
 python-dotenv
-
